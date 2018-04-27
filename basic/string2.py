@@ -1,4 +1,4 @@
-#!/usr/bin/python2.4 -tt
+#!/usr/bin/python -tt
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
@@ -17,7 +17,15 @@
 # Return the resulting string.
 def verbing(s):
   # +++your code here+++
-  return
+  res=""
+  if(len(s)<3):
+    res=s
+  elif(s[-3:]=='ing'):
+    res=s+'ly'
+  else:
+    res=s+'ing'
+
+  return res
 
 
 # E. not_bad
