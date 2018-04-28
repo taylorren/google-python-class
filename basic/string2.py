@@ -38,7 +38,16 @@ def verbing(s):
 # This dinner is good!
 def not_bad(s):
   # +++your code here+++
-  return
+  idx_bad=s.find("bad")
+  idx_not=s.find('not')
+
+  if(idx_bad==-1 or idx_not==-1):
+    return s
+  if(idx_bad<idx_not):
+    return s
+
+  s=s[0:idx_not] + "good" + s[idx_bad+3:]
+  return s
 
 
 # F. front_back
@@ -49,9 +58,22 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-  # +++your code here+++
-  return
+  a_len=len(a)
+  b_len=len(b)
 
+  if(a_len%2==0):
+    a_mid=a_len/2
+  else:
+    a_mid=a_len/2+1
+  # +++your code here+++
+
+  if(b_len%2==0):
+    b_mid=b_len/2
+  else:
+    b_mid=b_len/2+1
+
+
+  return a[:a_mid]+b[:b_mid]+a[a_mid:]+b[b_mid:]
 
 # Simple provided test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
