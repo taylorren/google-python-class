@@ -38,6 +38,7 @@ print_words() and print_top().
 """
 
 import sys
+import re
 
 # +++your code here+++
 # Define print_words(filename) and print_top(filename) functions.
@@ -46,6 +47,37 @@ import sys
 # Then print_words() and print_top() can just call the utility function.
 
 ###
+def get_words_list(fn):
+  f=open(fn, 'r')
+  strings=f.read()
+  words=re.split("\s|\n", strings)
+
+  res=[]
+  for word in words:
+    if (word==''):
+      continue
+    else:
+      res.append(word.lower())
+
+  return res
+
+def print_words(fn):
+  words_list=get_words_list(fn)
+  
+  counttable={}
+
+  for word in words_list:
+    if word in counttable:
+      counttable[word]=counttable[word]+1
+    else:
+      counttable[word]=1
+
+  for key in sorted(counttable.keys()):
+    print ("%s\t\t%d"%(key,counttable[key]))
+
+
+
+
 
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
