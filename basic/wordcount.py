@@ -73,7 +73,7 @@ def print_words(fn):
       counttable[word]=1
 
   for key in sorted(counttable.keys()):
-    print ("%s\t\t%d"%(key,counttable[key]))
+    print ("%s: %d"%(key,counttable[key]))
 
 def print_top(fn):
   words_list=get_words_list(fn)
@@ -87,7 +87,7 @@ def print_top(fn):
 
   count=1
   for k, v in sorted(counttable.items(), key=lambda(k,v):(v,k), reverse=True):
-    print("%s: \t\t%s"%(k,v))
+    print("%s: %s"%(k,v))
     count+=1
     
     if(count==20): 
